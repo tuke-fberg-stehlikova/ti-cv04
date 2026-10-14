@@ -6,13 +6,13 @@ Stránka týždňa s teóriou a ukážkami: https://beata.stehlikova.website.tuk
 
 V repository *cv04* na GitHub a vo svojom webovom priestore na sigma (`ti/cv04`):
 
-- `index.php`, `form.php`, `contact.php` (po 5 riadkov), `template.php`, priečinok `content/` s `routes.php`, `register.php`, `contact.php`,
+- `index.php`, `routes.php`, `form.php`, `contact.php` (po 5 riadkov), `template.php`, priečinok `content/` s `home.php`, `routes.php`, `register.php`, `contact.php`,
 - cvičné súbory `variables.php`, `arrays.php`, `loops.php`,
 - `css/style.css` a `img/` z minulého týždňa; staré `index.html` a `form.html` sú zmazané.
 
 ## Hodnotenie
 
-1 bod. Web je prerobený na template s tromi stránkami a tri cvičné súbory sú hotové. Commit a push najneskôr do nasledujúceho cvičenia. Po každom push sa spustia automatické testy; výsledok nájdeš podľa návodu [04 Odovzdávanie](https://beata.stehlikova.website.tuke.sk/navody/04-odovzdavanie.html), časť 6.
+1 bod. Web je prerobený na template so štyrmi stránkami a tri cvičné súbory sú hotové. Commit a push najneskôr do nasledujúceho cvičenia. Po každom push sa spustia automatické testy; výsledok nájdeš podľa návodu [04 Odovzdávanie](https://beata.stehlikova.website.tuke.sk/navody/04-odovzdavanie.html), časť 6.
 
 ## Prompty pre AI
 
@@ -86,24 +86,28 @@ s krokom 1 dole, a druhý // DOPLŇ: zmeň while tak, aby odpočítaval po 2.
 ```text
 Posielam ti svoje súbory index.html a form.html z webu na tému [DOPLŇ tému].
 Rozdeľ ich na PHP šablónu a obsah. PHP 8.1. Texty, triedy Bootstrap, obrázky
-a formulár nemeň.
+a formulár nemeň. Z index.html vzniknú dve stránky: Domov (všetko okrem
+[DOPLŇ názov sekcie s položkami, napr. ciest]) a [DOPLŇ názov stránky, napr. Cesty]
+(sekcie s kartami a tabuľkou).
 
 Vytvor presne tieto súbory:
 - template.php: celý rám stránky: <!doctype html>, <head> s meta charset,
   meta viewport, <title><?= $title ?> | [DOPLŇ názov webu]</title>, Bootstrap CSS
-  a css/style.css; navbar z môjho index.html, kde každý odkaz vedie na .php
-  a trieda active sa dáva podmienkou <?= $active == 'index' ? 'active' : '' ?>
-  (pre form.php s hodnotou 'form'); <main class="container"> s <h1><?= $title ?></h1>
+  a css/style.css; navbar z môjho index.html s položkami Domov (index.php),
+  [DOPLŇ, napr. Cesty] (routes.php) a Registrácia (form.php), kde trieda active
+  sa dáva podmienkou <?= $active == 'index' ? 'active' : '' ?> (s hodnotami
+  'index', 'routes', 'form'); <main class="container"> s <h1><?= $title ?></h1>
   a riadkom <?php include $content; ?>; pätička s rokom cez date('Y');
   Bootstrap JS pred </body>.
-- content/routes.php: iba obsah <main> z môjho index.html (sekcie, karty, tabuľka),
-  bez <html>, <head>, menu a pätičky, bez h1.
+- content/home.php: z <main> môjho index.html všetky sekcie okrem sekcie
+  s kartami a tabuľkou; bez <html>, <head>, menu a pätičky, bez h1.
+- content/routes.php: z <main> môjho index.html iba sekcie s kartami a tabuľkou.
 - content/register.php: iba formulár z môjho form.html, bez všetkého ostatného.
-- index.php: päť riadkov: <?php, $title = '...', $active = 'index',
-  $content = 'content/routes.php', include 'template.php'.
-- form.php: to isté s hodnotami pre registráciu.
+- index.php: päť riadkov: <?php, $title = 'Domov', $active = 'index',
+  $content = 'content/home.php', include 'template.php'.
+- routes.php a form.php: to isté s hodnotami pre cesty a pre registráciu.
 
-Do template.php napíš komentár // DOPLŇ: pridaj tretiu položku menu Kontakt
+Do template.php napíš komentár // DOPLŇ: pridaj štvrtú položku menu Kontakt
 na contact.php. Ku každému súboru krátky komentár, čo v ňom je a čo v ňom nie je.
 
 Tu sú moje súbory:
@@ -140,7 +144,7 @@ ls cv04
 
 **Úloha 5.8: Cykly.** Prompt z Ukážky 9, výsledok ulož ako `loops.php`. Doplň `// DOPLŇ`: prepíš `for` od 10 do 1, `while` po 2.
 
-**Úloha 5.9: Template.** Prompt z Ukážky 10 so svojimi `index.html` a `form.html`. Výsledné súbory ulož presne pod tými názvami (priečinok `content/` vytvor: pravý klik na `cv04`, **New Folder…**). Staré `index.html` a `form.html` zmaž (pravý klik na súbor, **Delete**). Otvor `index.php` aj `form.php` na sigma: vyzerajú ako v cv03 a `active` je pri správnej položke.
+**Úloha 5.9: Template.** Prompt z Ukážky 10 so svojimi `index.html` a `form.html`. Ak tvoj `index.html` má len sekciu s cestami, dopíš do `content/home.php` sám krátku sekciu O stene s jedným odsekom. Výsledné súbory ulož presne pod tými názvami (priečinok `content/` vytvor: pravý klik na `cv04`, **New Folder…**). Staré `index.html` a `form.html` zmaž (pravý klik na súbor, **Delete**). Otvor `index.php`, `routes.php` aj `form.php` na sigma: texty sú z cv03 a `active` je pri správnej položke.
 
 **Úloha 5.10: Stránka Kontakt.** Ručne, bez AI: skopíruj `index.php` ako `contact.php` a zmeň tri hodnoty; vytvor `content/contact.php` s nadpisom `h2`, odsekom a kontaktom (nie skutočným telefónom); doplň položku Kontakt do menu v `template.php` aj s podmienkou pre `active`.
 
@@ -148,9 +152,9 @@ ls cv04
 
 **Úloha 5.12: Commit a push.** Podľa návodu [04 Odovzdávanie](https://beata.stehlikova.website.tuke.sk/navody/04-odovzdavanie.html), časť 5; commit po každej hotovej úlohe. Výsledok testov podľa časti 6.
 
-**Úloha 5.13: Upload Folder a kontrola na sigma.** Podľa návodu 04, časť 7: pravý klik na `cv04`, v menu úplne dole **Upload Folder**. Over všetky stránky: `index.php`, `form.php`, `contact.php`, `variables.php`, `arrays.php`, `loops.php`.
+**Úloha 5.13: Upload Folder a kontrola na sigma.** Podľa návodu 04, časť 7: pravý klik na `cv04`, v menu úplne dole **Upload Folder**. Over všetky stránky: `index.php`, `routes.php`, `form.php`, `contact.php`, `variables.php`, `arrays.php`, `loops.php`.
 
-**Hodnotenie:** 1 bod. V repository *cv04* na GitHub aj na sigma je web prerobený na template s tromi stránkami a tri cvičné súbory `variables.php`, `arrays.php`, `loops.php`. Commit a push najneskôr do nasledujúceho cvičenia.
+**Hodnotenie:** 1 bod. V repository *cv04* na GitHub aj na sigma je web prerobený na template so štyrmi stránkami a tri cvičné súbory `variables.php`, `arrays.php`, `loops.php`. Commit a push najneskôr do nasledujúceho cvičenia.
 
 ---
 
@@ -162,13 +166,13 @@ The week page with theory and examples: https://beata.stehlikova.website.tuke.sk
 
 In the repository *cv04* on GitHub and in your web space on sigma (`ti/cv04`):
 
-- `index.php`, `form.php`, `contact.php` (5 lines each), `template.php`, the `content/` folder with `routes.php`, `register.php`, `contact.php`,
+- `index.php`, `routes.php`, `form.php`, `contact.php` (5 lines each), `template.php`, the `content/` folder with `home.php`, `routes.php`, `register.php`, `contact.php`,
 - the practice files `variables.php`, `arrays.php`, `loops.php`,
 - `css/style.css` and `img/` from last week; the old `index.html` and `form.html` are deleted.
 
 ## Grading
 
-1 point. The website is rebuilt with a template and three pages, and the three practice files are done. Commit and push by the next lab at the latest. Automatic tests run after every push; find the result following guide [04 Submitting](https://beata.stehlikova.website.tuke.sk/navody/04-odovzdavanie.html), part 6.
+1 point. The website is rebuilt with a template and four pages, and the three practice files are done. Commit and push by the next lab at the latest. Automatic tests run after every push; find the result following guide [04 Submitting](https://beata.stehlikova.website.tuke.sk/navody/04-odovzdavanie.html), part 6.
 
 ## AI prompts
 
@@ -248,24 +252,30 @@ steps of 1, and another // DOPLŇ: change the while loop to count down by 2.
 I am sending you my files index.html and form.html from a website about
 [FILL IN the topic]. Split them into a PHP template and content. PHP 8.1.
 Do not change the texts, the Bootstrap classes, the images or the form.
+index.html becomes two pages: Home (everything except [FILL IN the name of
+the section with the items, e.g. routes]) and [FILL IN the page name, e.g. Routes]
+(the sections with the cards and the table).
 
 Create exactly these files:
 - template.php: the whole page frame: <!doctype html>, <head> with meta charset,
   meta viewport, <title><?= $title ?> | [FILL IN the site name]</title>, the
-  Bootstrap CSS and css/style.css; the navbar from my index.html, where every
-  link leads to .php and the active class is given by the condition
-  <?= $active == 'index' ? 'active' : '' ?> (with the value 'form' for form.php);
-  <main class="container"> with <h1><?= $title ?></h1> and the line
+  Bootstrap CSS and css/style.css; the navbar from my index.html with the items
+  Home (index.php), [FILL IN, e.g. Routes] (routes.php) and Registration (form.php),
+  where the active class is given by the condition
+  <?= $active == 'index' ? 'active' : '' ?> (with the values 'index', 'routes',
+  'form'); <main class="container"> with <h1><?= $title ?></h1> and the line
   <?php include $content; ?>; a footer with the year via date('Y');
   the Bootstrap JS before </body>.
-- content/routes.php: only the <main> content of my index.html (sections, cards,
-  table), without <html>, <head>, menu and footer, without h1.
+- content/home.php: from the <main> of my index.html all sections except the one
+  with the cards and the table; without <html>, <head>, menu and footer, without h1.
+- content/routes.php: from the <main> of my index.html only the sections with
+  the cards and the table.
 - content/register.php: only the form from my form.html, without everything else.
-- index.php: five lines: <?php, $title = '...', $active = 'index',
-  $content = 'content/routes.php', include 'template.php'.
-- form.php: the same with the values for registration.
+- index.php: five lines: <?php, $title = 'Home', $active = 'index',
+  $content = 'content/home.php', include 'template.php'.
+- routes.php and form.php: the same with the values for routes and for registration.
 
-In template.php write the comment // DOPLŇ: add a third menu item Contact
+In template.php write the comment // DOPLŇ: add a fourth menu item Contact
 leading to contact.php. Add a short comment to every file saying what is in it
 and what is not.
 
@@ -303,7 +313,7 @@ ls cv04
 
 **Task 5.8: Loops.** The prompt from Example 9; save the result as `loops.php`. Fill in `// DOPLŇ`: rewrite `for` from 10 down to 1, `while` by 2.
 
-**Task 5.9: Template.** The prompt from Example 10 with your own `index.html` and `form.html`. Save the resulting files exactly under those names (create the `content/` folder: right-click `cv04`, **New Folder…**). Delete the old `index.html` and `form.html` (right-click the file, **Delete**). Open `index.php` and `form.php` on sigma: they look like in cv03 and `active` is on the right item.
+**Task 5.9: Template.** The prompt from Example 10 with your own `index.html` and `form.html`. If your `index.html` has only the section with the routes, write a short About section with one paragraph into `content/home.php` yourself. Save the resulting files exactly under those names (create the `content/` folder: right-click `cv04`, **New Folder…**). Delete the old `index.html` and `form.html` (right-click the file, **Delete**). Open `index.php`, `routes.php` and `form.php` on sigma: the texts are from cv03 and `active` is on the right item.
 
 **Task 5.10: The Contact page.** By hand, without AI: copy `index.php` as `contact.php` and change the three values; create `content/contact.php` with an `h2` heading, a paragraph and a contact (not a real phone number); add the Contact item to the menu in `template.php` including the condition for `active`.
 
@@ -311,6 +321,6 @@ ls cv04
 
 **Task 5.12: Commit and push.** Following guide [04 Submitting](https://beata.stehlikova.website.tuke.sk/navody/04-odovzdavanie.html), part 5; a commit after every finished task. The test result following part 6.
 
-**Task 5.13: Upload Folder and the check on sigma.** Following guide 04, part 7: right-click `cv04`, **Upload Folder** at the very bottom of the menu. Check all pages: `index.php`, `form.php`, `contact.php`, `variables.php`, `arrays.php`, `loops.php`.
+**Task 5.13: Upload Folder and the check on sigma.** Following guide 04, part 7: right-click `cv04`, **Upload Folder** at the very bottom of the menu. Check all pages: `index.php`, `routes.php`, `form.php`, `contact.php`, `variables.php`, `arrays.php`, `loops.php`.
 
-**Grading:** 1 point. The repository *cv04* on GitHub and on sigma contains the website rebuilt with a template and three pages, and the three practice files `variables.php`, `arrays.php`, `loops.php`. Commit and push by the next lab at the latest.
+**Grading:** 1 point. The repository *cv04* on GitHub and on sigma contains the website rebuilt with a template and four pages, and the three practice files `variables.php`, `arrays.php`, `loops.php`. Commit and push by the next lab at the latest.
