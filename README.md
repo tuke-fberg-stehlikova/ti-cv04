@@ -148,7 +148,7 @@ ls cv04
 
 **Úloha 5.10: Stránka Kontakt.** Ručne, bez AI: skopíruj `index.php` ako `contact.php` a zmeň tri hodnoty; vytvor `content/contact.php` s nadpisom `h2`, odsekom a kontaktom (nie skutočným telefónom); doplň položku Kontakt do menu v `template.php` aj s podmienkou pre `active`.
 
-**Úloha 5.11: Chyba naschvál.** V `contact.php` zmaž bodkočiarku, ulož, F5, prečítaj hlásenie a nájdi číslo riadka. Oprav. Potom v `template.php` prepíš `$title` na `$titel`, pozri hlásenie, oprav.
+**Úloha 5.11: Chyba naschvál.** Vytvor `chyba.php` a `chyba-kod.php` z teórie, otvor `chyba.php` na sigma, prečítaj hlásenie a nájdi riadok. Doplň bodkočiarku, F5. Potom v `echo` prepíš `$grade` na `$grad`, pozri hlásenie (Warning: Undefined variable), oprav.
 
 **Úloha 5.12: Commit a push.** Podľa návodu [04 Odovzdávanie](https://beata.stehlikova.website.tuke.sk/navody/04-odovzdavanie.html), časť 5; commit po každej hotovej úlohe. Výsledok testov podľa časti 6.
 
@@ -317,7 +317,7 @@ ls cv04
 
 **Task 5.10: The Contact page.** By hand, without AI: copy `index.php` as `contact.php` and change the three values; create `content/contact.php` with an `h2` heading, a paragraph and a contact (not a real phone number); add the Contact item to the menu in `template.php` including the condition for `active`.
 
-**Task 5.11: An error on purpose.** In `contact.php` delete a semicolon, save, F5, read the message and find the line number. Fix it. Then in `template.php` change `$title` to `$titel`, look at the message, fix it.
+**Task 5.11: An error on purpose.** Create `chyba.php` and `chyba-kod.php` from the theory, open `chyba.php` on sigma, read the message and find the line. Add the semicolon, F5. Then in `echo` change `$grade` to `$grad`, look at the message (Warning: Undefined variable), fix it.
 
 **Task 5.12: Commit and push.** Following guide [04 Submitting](https://beata.stehlikova.website.tuke.sk/navody/04-odovzdavanie.html), part 5; a commit after every finished task. The test result following part 6.
 
